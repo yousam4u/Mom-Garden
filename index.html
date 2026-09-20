@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#2F7C58" />
+    <meta name="description" content="복실이와 니니 코치가 함께하는 70대 어르신 맞춤 무릎 안심 운동 정원" />
+    <meta property="og:title" content="엄마의 정원" />
+    <meta property="og:description" content="복실이와 니니 코치가 함께하는 70대 어르신 맞춤 무릎 안심 운동 정원" />
+    <link rel="manifest" href="./public/manifest.webmanifest" />
+    <link rel="icon" href="./public/icons/icon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;600;700;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css?v=20260920-artistic-wellness" />
+    <title>엄마의 정원</title>
+  </head>
+  <body>
+    <main class="app" aria-live="polite">
+      <section class="screen" id="screen-home">
+        <!-- Minimalist Wellness Topbar (Menu icon & Companion Switcher) -->
+        <header class="topbar wellness-topbar">
+          <div class="topbar-left">
+            <button class="minimal-menu-btn" type="button" aria-label="메뉴 열기" title="메뉴">
+              <span class="menu-bar"></span>
+              <span class="menu-bar short"></span>
+            </button>
+            <div class="brand-titles">
+              <p class="kicker" id="app-kicker">니니 코치와 함께하는 안심 무릎운동</p>
+              <h1 class="editorial-title">엄마의 <span class="coral-accent">정원</span></h1>
+            </div>
+          </div>
+          <div class="companion-selector" role="radiogroup" aria-label="운동 짝꿍 선택">
+            <button class="companion-btn active is-nini" id="btn-companion-nini" data-companion="nini" type="button" role="radio" aria-checked="true" title="니니 코치와 함께하기">
+              <span class="companion-avatar" aria-hidden="true">👧</span>
+              <span class="companion-name">니니</span>
+            </button>
+            <button class="companion-btn" id="btn-companion-boksil" data-companion="boksil" type="button" role="radio" aria-checked="false" title="복실이와 함께하기">
+              <span class="companion-avatar" aria-hidden="true">🐶</span>
+              <span class="companion-name">복실이</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- "How do you feel?" Knee Condition Check-in (Inspired by reference UI) -->
+        <section class="mood-check-card" aria-labelledby="mood-check-heading">
+          <div class="mood-check-title-row">
+            <h2 class="mood-subheading editorial-serif" id="mood-check-heading">오늘 무릎 <span class="coral-accent">어떠세요?</span></h2>
+            <span class="today-label">컨디션 체크</span>
+          </div>
+          <div class="mood-bubbles-row" role="radiogroup" aria-label="오늘 무릎 컨디션 선택">
+            <button class="mood-bubble-btn" type="button" data-mood="stiff" role="radio" aria-checked="false" aria-label="뻐근해요">
+              <span class="mood-circle-bubble"><span class="mood-emoji" aria-hidden="true">🥱</span></span>
+              <span class="mood-name">뻐근해요</span>
+            </button>
+            <button class="mood-bubble-btn" type="button" data-mood="careful" role="radio" aria-checked="false" aria-label="조심조심">
+              <span class="mood-circle-bubble"><span class="mood-emoji" aria-hidden="true">🙂</span></span>
+              <span class="mood-name">조심조심</span>
+            </button>
+            <button class="mood-bubble-btn active" type="button" data-mood="comfy" role="radio" aria-checked="true" aria-label="편안해요">
+              <span class="mood-circle-bubble"><span class="mood-emoji" aria-hidden="true">😊</span></span>
+              <span class="mood-name">편안해요</span>
+            </button>
+            <button class="mood-bubble-btn" type="button" data-mood="energetic" role="radio" aria-checked="false" aria-label="개운해요">
+              <span class="mood-circle-bubble"><span class="mood-emoji" aria-hidden="true">😄</span></span>
+              <span class="mood-name">개운해요</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Garden Stage with Dynamic Companion (Nini Coach / Boksil) -->
+        <section class="garden" aria-label="오늘의 정원">
+          <div class="sun">✿</div>
+          <div class="garden-character-wrapper" id="home-character-stage">
+            <!-- Nini 3D Chibi Coach (from Character-nini folder) -->
+            <div class="nini-character mood-happy" id="home-nini" role="img" aria-label="니니 코치가 반갑게 웃고 있습니다">
+              <img id="home-nini-img" class="companion-display-img nini-img" src="./Character-nini/nini.png" alt="니니 코치" />
+              <span class="neon-knee-halo" aria-hidden="true"></span>
+            </div>
+            <!-- Boksil (Boksil character) -->
+            <div class="boksil mood-happy" id="home-boksil" role="img" aria-label="복실이가 반갑게 웃고 있습니다" hidden>
+              <span class="head">
+                <span class="ear left"><span class="ear-inner"></span></span>
+                <span class="ear right"><span class="ear-inner"></span></span>
+                <span class="hair-curl"></span>
+                <span class="eyes"></span>
+                <span class="nose"></span>
+                <span class="mouth"></span>
+                <span class="cheeks"></span>
+              </span>
+              <span class="torso">
+                <span class="vest"></span>
+                <span class="collar"></span>
+                <span class="vest-button b1"></span>
+                <span class="vest-button b2"></span>
+              </span>
+              <span class="arm left"></span>
+              <span class="arm right"></span>
+              <span class="leg left"></span>
+              <span class="leg right knee"></span>
+            </div>
+          </div>
+          <div class="flowers" id="flowers"></div>
+        </section>
+
+        <p class="bubble" id="home-message">오늘은 한 번만 해도 충분해요. 기분 좋게 움직여봐요!</p>
+
+        <!-- Daily Inspiration Card (Editorial Quote) -->
+        <section class="daily-inspiration-card" id="daily-inspiration-card" aria-label="오늘의 응원 한마디">
+          <div class="inspiration-header">
+            <div class="inspiration-badge-group">
+              <span class="inspiration-badge" id="inspiration-badge-title">🌱 오늘의 응원</span>
+              <span class="inspiration-date" id="inspiration-date">오늘의 말씀</span>
+            </div>
+            <div class="inspiration-actions">
+              <button class="inspiration-action-btn btn-speak" id="btn-speak-inspiration" type="button" aria-label="음성으로 오늘의 응원 듣기" title="음성으로 듣기">
+                <span class="inspiration-btn-icon" aria-hidden="true">🔊</span>
+                <span>듣기</span>
+              </button>
+              <button class="inspiration-action-btn btn-refresh" id="btn-refresh-inspiration" type="button" aria-label="다른 응원 메시지 보기" title="다른 응원 보기">
+                <span class="inspiration-btn-icon" aria-hidden="true">🔄</span>
+                <span>다른 응원</span>
+              </button>
+            </div>
+          </div>
+          <div class="inspiration-content">
+            <p class="inspiration-text" id="daily-inspiration-text" aria-live="polite">
+              "천천히 걷는 걸음도 앞으로 나아가는 소중한 한 걸음이에요. 오늘 하루도 무릎 아끼며 기분 좋게 시작해봐요!"
+            </p>
+          </div>
+          <div class="inspiration-footer">
+            <span class="inspiration-tag" id="daily-inspiration-tag">✨ 작은 한 걸음</span>
+            <span class="inspiration-author" id="daily-inspiration-author">👧 니니 코치의 따뜻한 응원</span>
+          </div>
+        </section>
+
+        <!-- Exercise Level Bento Selection -->
+        <section class="level-picker" aria-labelledby="level-picker-title">
+          <div class="level-picker-heading">
+            <div>
+              <span class="today-label">오늘 운동 단계</span>
+              <strong id="level-picker-title">몸에 맞게 골라요</strong>
+            </div>
+            <div class="level-heading-actions">
+              <button class="level-info-btn" id="btn-open-level-modal" type="button" aria-haspopup="dialog" aria-controls="level-modal">
+                <span class="info-icon" aria-hidden="true">ℹ️</span>
+                <span>단계별 안내</span>
+              </button>
+              <span class="level-current" aria-live="polite">
+                <b id="today-level">1단계</b>
+                <small id="today-reps">10회 × 3세트</small>
+              </span>
+            </div>
+          </div>
+          <div class="level-options" aria-label="운동 단계 선택">
+            <button class="level-option" type="button" data-level="1" aria-pressed="true"><b>1단계</b><span>10회 × 3세트</span></button>
+            <button class="level-option" type="button" data-level="2" aria-pressed="false"><b>2단계</b><span>12회 × 4세트</span></button>
+            <button class="level-option" type="button" data-level="3" aria-pressed="false"><b>3단계</b><span>15회 × 5세트</span></button>
+          </div>
+          <div class="level-tip-card" id="level-summary-card" aria-live="polite">
+            <div class="level-tip-badge" id="level-tip-badge">1단계 추천</div>
+            <p class="level-tip-target" id="level-tip-target">처음 시작하거나 무릎이 뻐근한 날 추천해요.</p>
+            <p class="level-tip-caution" id="level-tip-caution"><b>주의</b> 높이 들려 애쓰지 말고, 아프지 않은 범위까지만 천천히 움직여요.</p>
+          </div>
+          <button class="level-detail-link" id="btn-open-level-modal-link" type="button">
+            <span>단계별 강도와 주의사항 자세히 보기</span>
+            <span aria-hidden="true">➔</span>
+          </button>
+        </section>
+
+        <!-- Today Summary 3-Metric Panel (styles-1.css Layout) -->
+        <section class="today-panel" aria-label="오늘 운동 요약">
+          <div class="today-main">
+            <span class="today-label">오늘 채운 정원</span>
+            <strong id="today-day-count">1일차</strong>
+            <span class="today-status" id="today-state-badge">오늘 상태: <b id="today-state">준비</b></span>
+          </div>
+          <div class="today-grid">
+            <span>
+              <small>물준 횟수</small>
+              <b id="today-count">0 / 3번</b>
+            </span>
+            <span>
+              <small>이번 주</small>
+              <b id="week-count">0일 완료</b>
+            </span>
+            <span>
+              <small>총 운동</small>
+              <b id="total-count">0일</b>
+            </span>
+          </div>
+        </section>
+
+        <div class="watering" id="watering" aria-label="오늘 운동 완료 상태"></div>
+
+        <!-- Action Buttons -->
+        <button class="primary" id="btn-open-modes" type="button">운동 시작하기</button>
+        <button class="secondary guide-open" data-screen="guide" type="button">다리운동 방법</button>
+      </section>
+
+      <section class="screen" id="screen-modes" hidden>
+        <header class="subbar">
+          <button class="nav-btn" data-screen="home" type="button" aria-label="홈으로 돌아가기">←</button>
+          <h1 class="editorial-title">오늘 몸에 맞게 <span class="accent-text">골라요</span></h1>
+          <div class="user-avatar-badge small" aria-hidden="true">
+            <img src="./public/icons/icon.svg" alt="" class="avatar-img" />
+          </div>
+        </header>
+        <section class="routine-panel" aria-label="오늘 추천 루틴">
+          <div>
+            <span class="routine-label">오늘 추천 순서</span>
+            <strong>고르기 → 준비 → 천천히 따라 하기</strong>
+          </div>
+          <ol class="routine-steps">
+            <li>운동 선택</li>
+            <li>안전 확인</li>
+            <li>10~15회 · 3~5세트</li>
+          </ol>
+        </section>
+        <div class="mode-list" id="mode-list"></div>
+        <div class="modes-actions">
+          <button class="primary" id="btn-to-ready" type="button">준비 자세 보기</button>
+          <button class="secondary" data-screen="home" type="button">← 뒤로 가기</button>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-ready" hidden>
+        <header class="subbar">
+          <button class="nav-btn" data-screen="modes" type="button" aria-label="운동 선택으로 돌아가기">←</button>
+          <h1 id="ready-title" class="editorial-title">먼저 안전 <span class="accent-text">확인</span></h1>
+          <div class="user-avatar-badge small" aria-hidden="true">
+            <img src="./public/icons/icon.svg" alt="" class="avatar-img" />
+          </div>
+        </header>
+        <section class="safety-card">
+          <div class="pose-preview" id="ready-pose"><span></span></div>
+          <ul id="safety-list"></ul>
+          <div class="signal-guide-box" role="note" aria-label="시작 및 휴식 알림 안내">
+            <div class="signal-guide-header">
+              <span class="signal-badge" aria-hidden="true">🔔📳 알림 안내</span>
+              <b>세트 시작 & 휴식 끝 알림</b>
+            </div>
+            <p>세트가 시작될 때와 세트 사이 휴식 시간이 끝날 때 <b>맑은 소리</b>와 <b>진동</b>으로 알려드려요.</p>
+          </div>
+          <div class="bgm-guide-box" role="note" aria-label="복실이 배경음악 안내">
+            <div class="bgm-guide-header">
+              <span class="bgm-guide-badge" aria-hidden="true">🎵 복실이 음악</span>
+              <b>일정한 템포의 부드러운 배경음악</b>
+            </div>
+            <p>운동할 때 부드럽고 경쾌한 음악으로 일정한 박자를 맞춰드려요. 운동 화면에서 언제든 <b>🎵 음악 버튼</b>으로 켜고 끌 수 있어요.</p>
+          </div>
+          <strong>아프면 바로 멈추세요. 오늘은 쉬어도 괜찮아요.</strong>
+        </section>
+        <button class="primary" id="btn-start" type="button">천천히 시작</button>
+      </section>
+
+      <section class="screen workout" id="screen-workout" hidden>
+        <header class="workbar">
+          <div><p class="kicker" id="work-mode">앉아서 하기</p><h1 id="work-title">천천히요</h1></div>
+          <div class="workbar-actions">
+            <button class="bgm-toggle-btn" id="btn-toggle-bgm" type="button" aria-pressed="false" aria-label="복실이 배경음악 켜기/끄기" title="일정한 템포를 돕는 부드럽고 경쾌한 복실이 배경음악">
+              <span class="bgm-icon" aria-hidden="true">🎵</span>
+              <span class="bgm-status-label" id="bgm-status-label">음악 꺼짐</span>
+            </button>
+            <button class="signal-toggle-btn" id="btn-toggle-cue" type="button" aria-pressed="true" aria-label="시작 및 휴식 알림 소리와 진동 켜짐" title="소리 및 진동 알림 켜짐 / 꺼짐">
+              <span class="signal-icon" aria-hidden="true">🔔</span>
+              <span class="signal-icon" aria-hidden="true">📳</span>
+              <span class="signal-status-label" id="signal-status-label">알림 켜짐</span>
+            </button>
+            <button class="pain" id="btn-pain" type="button">아파요</button>
+          </div>
+        </header>
+
+        <!-- Boksil's Rhythm & Pace Banner (visible when BGM is playing) -->
+        <div class="bgm-pace-banner" id="bgm-pace-banner" aria-live="polite" hidden>
+          <span class="bgm-pulse-icon" aria-hidden="true">🎵</span>
+          <span class="bgm-pace-text">복실이 음악: 일정한 박자에 맞춰 천천히 움직여요 (82 BPM)</span>
+        </div>
+
+        <!-- Dynamic Signal Alert Banner (Set Start & Rest End) -->
+        <div class="signal-alert" id="signal-alert" role="status" aria-live="polite" hidden>
+          <span class="signal-alert-icon" id="signal-alert-icon">🔔</span>
+          <span class="signal-alert-text" id="signal-alert-text">1세트 시작!</span>
+        </div>
+
+        <!-- Left / Right Leg Alternation Indicator (docs/06_Nini_Pose_Prompt_Set-1.md) -->
+        <div class="leg-side-indicator" id="leg-side-indicator" aria-live="polite">
+          <span class="leg-side-tag" id="leg-side-tag">오른쪽 다리</span>
+          <span id="leg-side-text">오른쪽 무릎에 편안히 집중해요</span>
+        </div>
+
+        <section class="stage">
+          <!-- Nini Coach Motion Figure (06_Nini_Pose_Prompt_Set.md) -->
+          <div class="nini-workout-figure phase-ready" id="nini-workout-stage" aria-label="니니 코치 운동 시연">
+            <div class="nini-img-wrapper" id="nini-img-wrapper">
+              <img id="nini-workout-img" class="nini-workout-img" src="./Character-nini/nini-s-1.png" alt="니니 코치 운동 자세" />
+              <div class="neon-knee-indicator" id="neon-knee-indicator" aria-hidden="true">
+                <span class="neon-pulse-ring"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Boksil Joint SVG Rig Figure -->
+          <div class="motion-figure pose-seated phase-ready" id="stick" aria-hidden="true" style="display:none;">
+            <svg class="boksil-svg" viewBox="0 0 360 300" role="img" aria-label="관절형 복실이 운동 캐릭터">
+              <g class="scene-props">
+                <line class="svg-floor" x1="24" y1="265" x2="336" y2="265" />
+                <g class="svg-mat" id="mat-structure">
+                  <rect class="svg-mat-base" x="24" y="224" width="312" height="6" rx="3" />
+                  <ellipse class="svg-mat-pillow" cx="58" cy="222" rx="26" ry="7" />
+                </g>
+                <g class="svg-chair" id="chair-structure">
+                  <!-- Back chair legs (far/shadow layer) -->
+                  <line class="svg-chair-leg far back" x1="84" y1="194" x2="75" y2="265" />
+                  <line class="svg-chair-leg far front" x1="162" y1="194" x2="162" y2="265" />
+                  <line class="svg-chair-rung" x1="79" y1="235" x2="164" y2="235" />
+                  <!-- Sturdy wooden backrest & spindles -->
+                  <rect class="svg-chair-crest" x="72" y="85" width="20" height="15" rx="4" />
+                  <line class="svg-chair-back" x1="82" y1="94" x2="84" y2="194" />
+                  <line class="svg-chair-spindle" x1="76" y1="99" x2="78" y2="194" />
+                  <!-- Wooden seat base & comfortable cushion -->
+                  <rect class="svg-chair-seat" x="70" y="190" width="104" height="8" rx="3" />
+                  <rect class="svg-chair-cushion" x="68" y="180" width="108" height="13" rx="6" />
+                  <!-- Front chair legs & non-slip safety pads (foreground layer) -->
+                  <line class="svg-chair-leg near back" x1="88" y1="194" x2="80" y2="265" />
+                  <line class="svg-chair-leg near front" x1="170" y1="194" x2="170" y2="265" />
+                  <rect class="svg-chair-pad back" x="76" y="262" width="9" height="4" rx="2" />
+                  <rect class="svg-chair-pad front" x="166" y="262" width="8" height="4" rx="2" />
+                </g>
+              </g>
+              <g class="boksil-rig">
+                <!-- Background limbs (left arm & leg) -->
+                <g class="svg-part limb b-left-upper-arm"><line x1="0" y1="0" x2="44" y2="0" /></g>
+                <circle class="svg-joint b-left-elbow" r="6" />
+                <g class="svg-part limb b-left-forearm"><line x1="0" y1="0" x2="40" y2="0" /></g>
+                <ellipse class="svg-hand b-left-hand" rx="9" ry="7" />
+
+                <g class="svg-part limb b-left-thigh"><line x1="0" y1="0" x2="56" y2="0" /></g>
+                <circle class="svg-joint b-left-knee" r="8" />
+                <g class="svg-part limb b-left-shin"><line x1="0" y1="0" x2="56" y2="0" /></g>
+                <ellipse class="svg-foot b-left-foot" rx="14" ry="7" />
+
+                <!-- Spine, Torso & Head -->
+                <g class="svg-part b-neck"><line x1="0" y1="0" x2="0" y2="18" /></g>
+                <g class="svg-part b-torso">
+                  <ellipse class="b-torso-body" cx="0" cy="0" rx="34" ry="44" />
+                  <path class="b-torso-vest" d="M -26 -16 C -20 12 -16 28 -22 36 C -8 42 8 42 22 36 C 16 28 20 12 26 -16 Z" />
+                  <path class="b-torso-collar" d="M -15 -35 Q 0 -21 15 -35" />
+                  <circle class="b-vest-button" cx="0" cy="2" r="3" />
+                  <circle class="b-vest-button" cx="0" cy="18" r="3" />
+                  <!-- Nini Shorts & Leaf Logo (docs/06_Nini_Pose_Prompt_Set-1.md) -->
+                  <rect class="b-shorts-svg" x="-26" y="24" width="52" height="18" rx="4" style="display:none;" />
+                  <path class="b-leaf-logo-svg" d="M -12 -8 C -14 -18 -4 -22 2 -14 C 6 -4 -4 2 -12 -8 Z" style="display:none;" />
+                </g>
+                <g class="svg-part b-head">
+                  <!-- Floppy expressive ears (Boksil) -->
+                  <g class="b-ear left">
+                    <ellipse cx="-25" cy="-14" rx="9" ry="16" transform="rotate(-18 -25 -14)" />
+                    <ellipse class="b-ear-inner" cx="-25" cy="-14" rx="5" ry="10" transform="rotate(-18 -25 -14)" />
+                  </g>
+                  <g class="b-ear right">
+                    <ellipse cx="25" cy="-14" rx="9" ry="16" transform="rotate(18 25 -14)" />
+                    <ellipse class="b-ear-inner" cx="25" cy="-14" rx="5" ry="10" transform="rotate(18 25 -14)" />
+                  </g>
+                  <!-- Nini Ponytail & Light-Blue Scrunchie (docs/06_Nini_Pose_Prompt_Set-1.md) -->
+                  <path class="b-ponytail-svg" d="M 16 -18 C 30 -38 60 -36 54 -10 C 50 14 36 28 22 18 Z" style="display:none;" />
+                  <circle class="b-scrunchie-svg" cx="22" cy="-14" r="7" style="display:none;" />
+                  <circle class="b-head-base" cx="0" cy="0" r="31" />
+                  <path class="b-hair-curl" d="M -5 -27 Q 0 -34 4 -26 Q 8 -32 10 -25" />
+                  <ellipse class="svg-cheek left" cx="-17" cy="10" rx="7" ry="6" />
+                  <ellipse class="svg-cheek right" cx="17" cy="10" rx="7" ry="6" />
+                  <ellipse class="svg-eye left" cx="-10" cy="-5" rx="4" ry="8" />
+                  <ellipse class="svg-eye right" cx="11" cy="-5" rx="4" ry="8" />
+                  <circle class="svg-eye-gleam left" cx="-12" cy="-7" r="1.5" />
+                  <circle class="svg-eye-gleam right" cx="9" cy="-7" r="1.5" />
+                  <ellipse class="b-nose" cx="0" cy="5" rx="4" ry="3" />
+                  <path class="svg-smile" d="M -11 11 Q 0 23 13 11" />
+                </g>
+
+                <!-- Foreground active leg (right) -->
+                <g class="svg-part limb b-right-thigh"><line x1="0" y1="0" x2="56" y2="0" /></g>
+                <g class="svg-part limb b-right-shin"><line x1="0" y1="0" x2="56" y2="0" /></g>
+                <circle class="svg-joint b-right-knee highlight" r="10" />
+                <ellipse class="svg-foot b-right-foot" rx="15" ry="7.5" />
+
+                <!-- Foreground arm (right) -->
+                <g class="svg-part limb b-right-upper-arm"><line x1="0" y1="0" x2="44" y2="0" /></g>
+                <circle class="svg-joint b-right-elbow" r="6" />
+                <g class="svg-part limb b-right-forearm"><line x1="0" y1="0" x2="40" y2="0" /></g>
+                <ellipse class="svg-hand b-right-hand" rx="9" ry="7" />
+              </g>
+            </svg>
+          </div>
+          <!-- Dedicated Rest Card between sets -->
+          <div class="rest-overlay" id="rest-overlay" hidden aria-live="polite">
+            <div class="rest-card">
+              <div class="rest-badge-row">
+                <span class="rest-badge">세트 사이 편한 휴식</span>
+                <span class="rest-next-label" id="rest-next-label">다음 2세트 준비</span>
+              </div>
+              <div class="rest-timer-box">
+                <span class="rest-timer-caption">남은 휴식 시간</span>
+                <strong class="rest-countdown" id="rest-countdown">20초</strong>
+              </div>
+              <p class="rest-guide-text" id="rest-guide-text">다리에 힘을 빼고 숨을 편안하게 고르세요. 시간이 끝나면 <b>소리</b>와 <b>진동</b>으로 알려드려요.</p>
+              <div class="rest-controls">
+                <button class="rest-btn-start" id="btn-rest-start-now" type="button">바로 다음 세트 시작 ➔</button>
+                <button class="rest-btn-extend" id="btn-rest-add-time" type="button">+10초 더 쉬기</button>
+              </div>
+            </div>
+          </div>
+          <div class="count" id="count">준비</div>
+          <p class="cue" id="cue">허리는 편하게, 반동 없이요.</p>
+        </section>
+        <ol class="work-flow" id="work-flow" aria-label="현재 운동 순서"></ol>
+        <div class="meters"><span id="set-meter">1세트 / 3세트</span><span id="rep-meter">0 / 10회</span></div>
+        <div class="work-actions"><button class="secondary" id="btn-pause" type="button">잠깐 쉬기</button><button class="danger" id="btn-stop" type="button">그만하기</button></div>
+      </section>
+
+      <section class="screen" id="screen-done" hidden>
+        <section class="done-card" id="done-card">
+          <div class="can">✿</div>
+          <!-- Nini Celebration Figure (docs/06_Nini_Pose_Prompt_Set-1.md e-1) -->
+          <div class="nini-character done-nini completion-cheer mood-cheer" id="done-nini" role="img" aria-label="니니 코치가 운동 완료를 축하합니다">
+            <img id="done-nini-img" class="companion-display-img nini-done-img" src="./Character-nini/nini-e-1.png" alt="물뿌리개 든 니니 코치" />
+            <span class="neon-knee-halo" aria-hidden="true"></span>
+          </div>
+          <!-- Boksil Celebration Figure -->
+          <div class="boksil done-boksil completion-cheer mood-cheer" id="done-boksil" role="img" aria-label="복실이가 운동 완료를 축하합니다" hidden>
+            <span class="head">
+              <span class="ear left"><span class="ear-inner"></span></span>
+              <span class="ear right"><span class="ear-inner"></span></span>
+              <span class="hair-curl"></span>
+              <span class="eyes"></span>
+              <span class="nose"></span>
+              <span class="mouth"></span>
+              <span class="cheeks"></span>
+            </span>
+            <span class="torso">
+              <span class="vest"></span>
+              <span class="collar"></span>
+              <span class="vest-button b1"></span>
+              <span class="vest-button b2"></span>
+            </span>
+            <span class="arm left"></span>
+            <span class="arm right"></span>
+            <span class="leg left"></span>
+            <span class="leg right knee"></span>
+          </div>
+          <div class="celebration" aria-hidden="true"><span>✿</span><span>✧</span><span>✿</span></div>
+          <div class="flowers big" id="done-flowers"></div>
+        </section>
+        <p class="kicker">물주기 완료</p>
+        <h1 class="editorial-title">참 <span class="accent-text">잘하셨어요!</span></h1>
+        <p class="bubble" id="done-message">정원에 물을 줬어요.</p>
+        <div class="watering" id="done-watering"></div>
+        <button class="primary" data-screen="home" type="button">정원으로 가기</button>
+      </section>
+
+      <section class="screen guide-screen" id="screen-guide" hidden>
+        <header class="subbar">
+          <button class="nav-btn" data-screen="home" type="button" aria-label="홈으로 돌아가기">←</button>
+          <h1 class="editorial-title">다리운동 <span class="accent-text">방법</span></h1>
+          <div class="user-avatar-badge small" aria-hidden="true">
+            <img src="./public/icons/icon.svg" alt="" class="avatar-img" />
+          </div>
+        </header>
+        <section class="guide-intro" aria-label="운동 반복 기준">
+          <strong>작고 천천히 움직여요</strong>
+          <p>1단계 10회 × 3세트 · 2단계 12회 × 4세트 · 3단계 15회 × 5세트</p>
+          <p>양쪽 운동은 오른쪽과 왼쪽을 같은 횟수로 해요. 무릎이나 허리가 아프면 바로 멈춰요.</p>
+        </section>
+
+        <!-- 단계별 운동 강도와 주의사항 상세 섹션 -->
+        <section class="guide-levels-card" aria-labelledby="guide-levels-heading">
+          <div class="guide-levels-header">
+            <span class="guide-levels-tag">단계 기준</span>
+            <strong id="guide-levels-heading">단계별 운동 강도 & 주의사항</strong>
+          </div>
+          <p class="guide-levels-desc">엄마의 컨디션에 맞게 선택하세요. 억지로 올리지 않아도 괜찮아요.</p>
+          <div class="guide-levels-grid">
+            <article class="level-card level-card-1">
+              <div class="level-card-head">
+                <span class="level-badge b1">1단계</span>
+                <b>10회 × 3세트 (총 30회)</b>
+              </div>
+              <p class="level-when"><b>추천 대상:</b> 처음 시작하거나, 무릎이 뻐근하고 몸이 무거운 날</p>
+              <ul class="level-cautions">
+                <li>높이 들려고 애쓰지 말고 통증 없는 낮은 각도까지만 작게 움직여요.</li>
+                <li>힘들면 1세트만 하고 멈춰도 몸을 아낀 훌륭한 선택이에요.</li>
+              </ul>
+            </article>
+
+            <article class="level-card level-card-2">
+              <div class="level-card-head">
+                <span class="level-badge b2">2단계</span>
+                <b>12회 × 4세트 (총 48회)</b>
+              </div>
+              <p class="level-when"><b>추천 대상:</b> 1단계가 수월해지고 다음 날 쑤시거나 피로가 없는 날</p>
+              <ul class="level-cautions">
+                <li>반동을 쓰지 말고 발끝을 몸 쪽으로 당겨 천천히 올려요.</li>
+                <li>힘줄 때 숨을 참지 않고 입으로 "후-" 길게 내쉬어요.</li>
+              </ul>
+            </article>
+
+            <article class="level-card level-card-3">
+              <div class="level-card-head">
+                <span class="level-badge b3">3단계</span>
+                <b>15회 × 5세트 (총 75회)</b>
+              </div>
+              <p class="level-when"><b>추천 대상:</b> 동작이 익숙하고 통증 없이 근력을 더 기르고 싶은 날</p>
+              <ul class="level-cautions">
+                <li>횟수를 채우려고 무릎을 '탁' 튕기거나 발을 쿵 떨어뜨리지 않아요.</li>
+                <li>무릎 안쪽이나 허리에 찌릿한 느낌이 들면 즉시 중단해요.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="guide-common-rule">
+            <strong>⚠️ 공통 안전 절대 수칙</strong>
+            <p>통증이 생기면 언제든 즉시 멈추세요. 많이 하는 것보다 무릎을 아끼며 천천히 하는 것이 가장 효과적입니다.</p>
+          </div>
+        </section>
+
+        <div class="exercise-guide-list">
+          <details class="exercise-guide" open>
+            <summary><span class="guide-tag seated-tag">앉아서</span><span><b>한쪽 무릎 펴기</b><small>허벅지는 두고 종아리만 움직여요</small></span></summary>
+            <ol>
+              <li>등받이 있는 의자에 깊게 앉고 양발을 바닥에 둬요.</li>
+              <li>발끝을 몸 쪽으로 살짝 당겨요.</li>
+              <li>허벅지는 의자에 둔 채 종아리만 앞으로 펴요.</li>
+              <li>무릎을 세게 잠그지 말고 2~3초 유지해요.</li>
+              <li>발을 쿵 놓지 말고 천천히 내려요.</li>
+            </ol>
+            <p class="guide-caution"><b>주의</b> 허리가 뒤로 젖혀지면 등받이에 기대고 움직임을 줄여요.</p>
+            <a href="https://www.youtube.com/shorts/dEy9onOlEh4" target="_blank" rel="noreferrer">참고 영상 보기</a>
+          </details>
+
+          <details class="exercise-guide">
+            <summary><span class="guide-tag seated-tag">앉아서</span><span><b>양쪽 다리 펴고 유지</b><small>두 다리를 함께 낮게 펴요</small></span></summary>
+            <ol>
+              <li>의자에 깊게 앉아 허리를 등받이에 편하게 붙여요.</li>
+              <li>두 발끝을 몸 쪽으로 당겨요.</li>
+              <li>두 종아리를 함께 앞으로 펴되 가능한 높이까지만 올려요.</li>
+              <li>처음에는 3초, 편하면 5초 유지해요.</li>
+              <li>두 발을 천천히 내려 완전히 힘을 빼요.</li>
+            </ol>
+            <p class="guide-caution"><b>주의</b> 영상의 10초 유지는 처음부터 따라 하지 않고 3초부터 시작해요.</p>
+            <a href="https://www.youtube.com/shorts/5O-e-SUv6rc" target="_blank" rel="noreferrer">참고 영상 보기</a>
+          </details>
+
+          <details class="exercise-guide">
+            <summary><span class="guide-tag seated-tag">앉아서</span><span><b>발 방향 바꾸고 무릎 펴기</b><small>바깥·가운데·안쪽을 작게 움직여요</small></span></summary>
+            <ol>
+              <li>단단한 의자 가장자리에 앉아 무릎 아래가 편하게 움직이게 해요.</li>
+              <li>양손으로 허벅지를 잡아 허벅지가 돌아가지 않게 해요.</li>
+              <li>발끝을 바깥쪽으로 조금 돌렸다가 가운데로 와요.</li>
+              <li>발끝을 안쪽으로 조금 돌렸다가 가운데로 와요.</li>
+              <li>편한 방향에서 종아리를 앞으로 펴고 2초 뒤 천천히 내려요.</li>
+            </ol>
+            <p class="guide-caution"><b>주의</b> 무릎을 비틀지 않아요. 소리와 함께 통증이 있으면 이 운동은 건너뛰어요.</p>
+            <a href="https://www.youtube.com/shorts/QlDQZww6gmY" target="_blank" rel="noreferrer">참고 영상 보기</a>
+          </details>
+
+          <details class="exercise-guide">
+            <summary><span class="guide-tag lying-tag">누워서</span><span><b>뒤꿈치 미끄러뜨리기</b><small>침대에서 무릎을 천천히 굽혔다 펴요</small></span></summary>
+            <ol>
+              <li>단단한 침대나 매트에 바로 누워 두 다리를 편하게 펴요.</li>
+              <li>한쪽 뒤꿈치를 바닥에 붙여요.</li>
+              <li>뒤꿈치를 엉덩이 쪽으로 천천히 끌어와 무릎을 굽혀요.</li>
+              <li>통증이 생기기 전 편한 위치에서 잠깐 멈춰요.</li>
+              <li>뒤꿈치를 밀어 다리를 천천히 다시 펴요.</li>
+            </ol>
+            <p class="guide-caution"><b>주의</b> 허리가 뜨거나 무릎이 안쪽으로 쓰러지면 움직임을 줄여요. 처음에는 밴드 없이 해요.</p>
+            <a href="https://www.youtube.com/shorts/dTbEDRhwUQ8" target="_blank" rel="noreferrer">참고 영상 보기</a>
+          </details>
+
+          <details class="exercise-guide">
+            <summary><span class="guide-tag lying-tag">누워서</span><span><b>누워서 무릎 벌리기</b><small>골반은 두고 무릎만 작게 벌려요</small></span></summary>
+            <ol>
+              <li>바로 누워 양쪽 무릎을 세우고 발바닥을 바닥에 둬요.</li>
+              <li>배와 허리의 힘을 편하게 풀어요.</li>
+              <li>양쪽 무릎을 바깥으로 조금 벌려요.</li>
+              <li>골반이 흔들리지 않는 범위에서 2초 유지해요.</li>
+              <li>무릎을 부딪치지 않게 천천히 가운데로 모아요.</li>
+            </ol>
+            <p class="guide-caution"><b>주의</b> 허리가 꺾이거나 골반이 들리면 범위를 줄여요. 밴드는 익숙해진 뒤에만 사용해요.</p>
+            <a href="https://www.youtube.com/shorts/dTbEDRhwUQ8" target="_blank" rel="noreferrer">참고 영상 보기</a>
+          </details>
+
+          <details class="exercise-guide">
+            <summary><span class="guide-tag lying-tag">옆으로</span><span><b>조개껍질 운동</b><small>발은 붙이고 위쪽 무릎만 열어요</small></span></summary>
+            <ol>
+              <li>침대에서 옆으로 누워 머리와 허리가 편하도록 베개를 받쳐요.</li>
+              <li>양쪽 무릎을 약 60도로 굽히고 발을 포개요.</li>
+              <li>발은 붙인 채 위쪽 무릎을 조금 들어요.</li>
+              <li>골반이 뒤로 넘어가지 않게 2초 유지해요.</li>
+              <li>위쪽 무릎을 천천히 내려요. 반대쪽도 같은 횟수로 해요.</li>
+            </ol>
+            <p class="guide-caution"><b>주의</b> 허리가 뒤로 굴러가면 등을 벽이나 쿠션에 가볍게 기대요.</p>
+            <a href="https://www.youtube.com/shorts/dTbEDRhwUQ8" target="_blank" rel="noreferrer">참고 영상 보기</a>
+          </details>
+
+          <details class="exercise-guide">
+            <summary><span class="guide-tag home-tag">서서</span><span><b>지지물 잡고 작은 옆걸음</b><small>깊은 런지 대신 옆으로 한 발씩 가요</small></span></summary>
+            <ol>
+              <li>벽이나 무거운 식탁을 양손으로 잡아요.</li>
+              <li>양발을 골반 너비로 두고 발끝을 정면으로 향해요.</li>
+              <li>오른발을 옆으로 한 뼘보다 작게 옮겨요.</li>
+              <li>왼발을 천천히 가까이 가져와 다시 골반 너비로 서요.</li>
+              <li>반대 방향도 같은 방법으로 움직여요. 좌우 한 번을 1회로 세요.</li>
+            </ol>
+            <p class="guide-caution"><b>주의</b> 깊게 앉거나 무릎을 꺾지 않아요. 움직이는 의자는 잡지 않아요.</p>
+            <a href="https://www.youtube.com/shorts/Kz5K0IabjMs" target="_blank" rel="noreferrer">참고 영상 보기</a>
+          </details>
+
+          <details class="exercise-guide">
+            <summary><span class="guide-tag home-tag">앉아서</span><span><b>일어나기 전 허벅지 힘주기</b><small>엉덩이는 의자에 두고 발로 바닥을 밀어요</small></span></summary>
+            <ol>
+              <li>단단한 의자에 앉아 발을 무릎 아래에 둬요.</li>
+              <li>허리를 둥글게 말지 말고 몸을 조금만 앞으로 기울여요.</li>
+              <li>일어날 듯이 양발로 바닥을 지그시 밀어요.</li>
+              <li>엉덩이는 의자에 둔 채 허벅지에 3초 힘을 줘요.</li>
+              <li>다시 편하게 앉아 다리 힘을 완전히 풀어요.</li>
+            </ol>
+            <p class="guide-caution"><b>주의</b> 실제로 일어서지 않아도 됩니다. 어지럽거나 무릎이 아프면 바로 힘을 풀어요.</p>
+            <a href="https://www.youtube.com/shorts/5O-e-SUv6rc" target="_blank" rel="noreferrer">참고 영상 보기</a>
+          </details>
+        </div>
+
+        <section class="not-default">
+          <strong>기본 루틴에서 제외한 동작</strong>
+          <p>깊게 무릎 접어 저항하기, 무릎 플랭크, 눈 감고 외발 서기, 불안정한 도구 위 서기, 깊은 사이드 런지는 전문가 확인 없이 따라 하지 않아요.</p>
+        </section>
+      </section>
+
+    </main>
+
+    <!-- 단계별 운동 강도와 주의사항 안내 팝업 모달 -->
+    <div id="level-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="level-modal-title" hidden>
+      <div class="modal-dialog">
+        <header class="modal-header">
+          <div>
+            <span class="modal-kicker">엄마의 정원 안전 가이드</span>
+            <h2 id="level-modal-title">단계별 운동 강도와 주의사항</h2>
+          </div>
+          <button id="btn-close-level-modal" class="modal-close-btn" type="button" aria-label="안내 닫기">✕</button>
+        </header>
+
+        <div class="modal-body">
+          <div class="modal-voice-bar">
+            <button id="btn-speak-level-guide" class="modal-voice-btn" type="button">
+              <span class="voice-icon" aria-hidden="true">🔊</span>
+              <span>복실이 목소리로 단계 안내 듣기</span>
+            </button>
+          </div>
+
+          <div class="modal-levels-list">
+            <!-- 1단계 -->
+            <article class="m-level-card m-level-1">
+              <div class="m-level-head">
+                <span class="m-level-tag b1">1단계</span>
+                <strong class="m-level-amount">10회 × 3세트 <small>(총 30회)</small></strong>
+              </div>
+              <div class="m-level-section">
+                <span class="m-section-label">추천 대상</span>
+                <p>처음 운동을 시작하시거나, 무릎이 뻐근하고 몸이 무거운 날</p>
+              </div>
+              <div class="m-level-section caution-section">
+                <span class="m-section-label warn-label">핵심 주의사항</span>
+                <ul>
+                  <li>높이 들려고 애쓰지 말고, <strong>통증 없는 낮은 각도까지만</strong> 살짝 들어요.</li>
+                  <li>힘들면 1세트만 하고 멈춰도 아주 잘하신 거예요.</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 2단계 -->
+            <article class="m-level-card m-level-2">
+              <div class="m-level-head">
+                <span class="m-level-tag b2">2단계</span>
+                <strong class="m-level-amount">12회 × 4세트 <small>(총 48회)</small></strong>
+              </div>
+              <div class="m-level-section">
+                <span class="m-section-label">추천 대상</span>
+                <p>1단계 3세트가 편안해지고, 다음 날 쑤시거나 피로가 없는 날</p>
+              </div>
+              <div class="m-level-section caution-section">
+                <span class="m-section-label warn-label">핵심 주의사항</span>
+                <ul>
+                  <li>반동을 쓰지 말고, <strong>발끝을 몸 쪽으로 당긴 상태</strong>를 유지해요.</li>
+                  <li>다리를 올릴 때 숨을 참지 말고 입으로 <strong>"후-"</strong> 길게 내쉬어요.</li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 3단계 -->
+            <article class="m-level-card m-level-3">
+              <div class="m-level-head">
+                <span class="m-level-tag b3">3단계</span>
+                <strong class="m-level-amount">15회 × 5세트 <small>(총 75회)</small></strong>
+              </div>
+              <div class="m-level-section">
+                <span class="m-section-label">추천 대상</span>
+                <p>동작이 익숙하고, 통증 없이 다리 근력을 조금 더 기르고 싶은 날</p>
+              </div>
+              <div class="m-level-section caution-section">
+                <span class="m-section-label warn-label">핵심 주의사항</span>
+                <ul>
+                  <li>횟수 채우기에 급급해 <strong>무릎을 탁 튕기거나 발을 쿵 내려놓지 않아요.</strong></li>
+                  <li>무릎 안쪽이나 허리에 찌릿한 느낌이 오면 즉시 멈추세요.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <!-- 공통 안전 수칙 -->
+          <div class="modal-safety-notice">
+            <h3>⚠️ 어르신 무릎 공통 안전 절대 수칙</h3>
+            <ol>
+              <li><strong>아프면 즉시 멈추기:</strong> 날카로운 통증이 있으면 언제든 <b>'아파요'</b> 버튼을 눌러 중단하세요.</li>
+              <li><strong>숨 참지 않기:</strong> 힘을 줄 때 숨을 참으면 혈압이 급격히 올라가니 편안하게 호흡하세요.</li>
+              <li><strong>멈춰도 칭찬:</strong> 세트를 다 못 채워도 무릎을 아낀 훌륭한 선택입니다.</li>
+              <li><strong>안전한 지지물:</strong> 바퀴 달린 의자는 금지! 꼭 단단한 벽이나 고정된 의자를 잡으세요.</li>
+            </ol>
+          </div>
+        </div>
+
+        <footer class="modal-footer">
+          <button id="btn-confirm-level-modal" class="modal-confirm-btn" type="button">확인했어요 (닫기)</button>
+        </footer>
+      </div>
+    </div>
+
+    <script defer src="./app.js?v=20260811-home-level"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

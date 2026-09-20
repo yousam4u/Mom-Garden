@@ -1,0 +1,1897 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css');
+
+:root {
+  --ink: #191c1d;
+  --coral-accent: #df6e3b;
+  --green: #2e6e50;
+  --soft-green: #e6f4ed;
+  --soft-mint: #dcece8;
+  --soft-peach: #fdf2e9;
+  --paper: #ffffff;
+  --bg: #d9ece6;
+  --bubble-active: #b5e4a8;
+  --charcoal-btn: #181c1a;
+  --sub-btn: #f4f6f5;
+  --pink: #ef5d88;
+  --soft: #ffd0c7;
+  --warn: #a73943;
+  --blue: #4f8fd8;
+  --gold: #f4b64a;
+  --mint: #dff2ee;
+  --neon-blue: #00d2ff;
+  --neon-glow: rgba(0, 210, 255, 0.7);
+  --neon-active: #2ae3ff;
+  --font-serif: "Playfair Display", "Noto Serif KR", Georgia, serif;
+  --font-body: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-title: "Playfair Display", "Noto Serif KR", serif;
+  --font-emphasis: "Pretendard Variable", Pretendard, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  font-family: var(--font-body);
+  line-height: 1.45;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #d9ece6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 10px;
+}
+button, select, input { font: inherit; }
+strong, b { font-family: var(--font-emphasis); }
+button { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+[hidden] { display: none !important; }
+
+/* Phone Shell Container (Inspired by Reference Dribbble UI) */
+.app {
+  width: 100%;
+  max-width: 430px;
+  min-height: calc(100vh - 36px);
+  max-height: 940px;
+  background: #ffffff;
+  border-radius: 40px;
+  box-shadow: 0 24px 64px rgba(18, 48, 38, 0.14), 0 4px 16px rgba(0, 0, 0, 0.04);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 22px 18px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.screen {
+  width: 100%;
+  min-height: 100%;
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+/* Minimalist Wellness Topbar */
+.wellness-topbar, .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0 6px;
+}
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.minimal-menu-btn {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 4px 2px;
+  cursor: pointer;
+}
+.menu-bar {
+  display: block;
+  height: 2.5px;
+  width: 22px;
+  background: #191c1d;
+  border-radius: 2px;
+  transition: width 0.2s ease;
+}
+.menu-bar.short {
+  width: 14px;
+}
+.minimal-menu-btn:hover .menu-bar.short {
+  width: 20px;
+}
+
+.subbar {
+  display: grid;
+  grid-template-columns: 50px 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+.kicker {
+  margin: 0 0 2px;
+  color: #6b7771;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+}
+.editorial-title, h1 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 7vw, 36px);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  color: #191c1d;
+  word-break: keep-all;
+}
+.coral-accent, .accent-text {
+  color: var(--coral-accent);
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+.nav-btn {
+  width: 48px;
+  height: 48px;
+  border: 1.5px solid #e1ebe5;
+  border-radius: 999px;
+  background: #fff;
+  color: #191c1d;
+  font-size: 22px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s ease;
+}
+.nav-btn:hover {
+  background: #f4f6f5;
+  border-color: #ccd9d2;
+}
+
+/* Companion Switcher (Nini Coach & Boksil) */
+.companion-selector {
+  display: inline-flex;
+  align-items: center;
+  background: #f4f6f5;
+  border: 1px solid #e5ebe7;
+  border-radius: 999px;
+  padding: 3px;
+  gap: 3px;
+}
+.companion-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: #647069;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 220ms cubic-bezier(0.18, 0.86, 0.26, 1.2);
+}
+.companion-btn.active {
+  background: #ffffff;
+  color: #191c1d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.companion-btn.active.is-nini {
+  color: #0c5796;
+}
+.companion-avatar {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* "How do you feel?" Knee Condition Check-in (Inspired by Reference UI) */
+.mood-check-card {
+  display: grid;
+  gap: 8px;
+  padding: 8px 4px 6px;
+  background: transparent;
+}
+.mood-check-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.mood-subheading {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: #191c1d;
+}
+.mood-bubbles-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 8px;
+  margin-top: 6px;
+  padding: 8px 4px;
+}
+.mood-bubble-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #66726c;
+  padding: 0;
+  transition: transform 0.2s cubic-bezier(0.18, 0.86, 0.26, 1.2);
+}
+.mood-circle-bubble {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4f6f5;
+  transition: all 0.25s ease;
+}
+.mood-bubble-btn .mood-emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+.mood-bubble-btn .mood-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #727a76;
+}
+/* Selected active emoji matches the soft lime circle in reference image! */
+.mood-bubble-btn.active .mood-circle-bubble {
+  background: #b5e4a8;
+  transform: scale(1.18);
+  box-shadow: 0 4px 14px rgba(125, 200, 110, 0.45);
+}
+.mood-bubble-btn.active .mood-name {
+  color: #191c1d;
+  font-weight: 800;
+}
+
+/* Today Panel & 3-Column Statistics */
+.today-panel, .routine-panel, .work-flow {
+  border: 1.5px solid #edf2ee;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+}
+.today-panel {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+}
+.today-main {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid #f2f6f3;
+}
+.today-label, .routine-label {
+  color: #6b7771;
+  font-size: 14px;
+  font-weight: 700;
+}
+.today-main strong {
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 30px;
+  line-height: 1;
+}
+.today-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 38px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #fdf2e9;
+  color: #924b20;
+  font-weight: 800;
+  font-size: 14px;
+}
+.today-status b {
+  font-family: var(--font-serif);
+  font-size: 17px;
+}
+
+.today-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.today-grid span {
+  min-height: 68px;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 8px;
+  border-radius: 14px;
+  background: #f6faf7;
+  text-align: center;
+}
+.today-grid span:nth-child(2) {
+  background: #edf5fc;
+  color: #174f84;
+}
+.today-grid span:nth-child(3) {
+  background: #fdf2e9;
+  color: #8c4217;
+}
+.today-grid b {
+  font-size: 22px;
+  line-height: 1.1;
+}
+.today-grid small {
+  color: #5b6859;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+/* Routine & Workflow */
+.routine-panel {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+.routine-panel strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 22px;
+  line-height: 1.25;
+  word-break: keep-all;
+}
+.routine-steps, .work-flow {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.routine-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.routine-steps li {
+  min-height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--mint);
+  color: #244d44;
+  font-size: 18px;
+  font-weight: 900;
+  text-align: center;
+}
+.routine-steps li:nth-child(2) {
+  background: #fff0dd;
+  color: #71502a;
+}
+.routine-steps li:nth-child(3) {
+  background: #ffe8f0;
+  color: #7a3150;
+}
+
+.work-flow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+  gap: 6px;
+  padding: 8px;
+}
+.work-flow li {
+  min-height: 48px;
+  display: grid;
+  place-items: center;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: #f1f6ed;
+  color: #58705f;
+  font-size: 16px;
+  font-weight: 900;
+  text-align: center;
+  word-break: keep-all;
+}
+.work-flow li.active {
+  border-color: var(--pink);
+  background: #ffe8f0;
+  color: #7a3150;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+/* Garden & Companion Illustration Stage (Peach Plate like in reference UI) */
+.garden, .safety-card, .stage, .done-card {
+  border: 1px solid #f6ded0;
+  border-radius: 32px;
+  background: #fdf2e9;
+  box-shadow: 0 8px 24px rgba(220, 160, 120, 0.08);
+}
+.garden {
+  position: relative;
+  min-height: 310px;
+  overflow: hidden;
+  background: #fdf2e9;
+  display: grid;
+  place-items: end center;
+  padding: 20px 16px 28px;
+  margin: 6px 0 10px;
+}
+/* Delicate diagonal floor lines like yoga mat / floor plane in reference */
+.garden::before {
+  content: "";
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+  right: 20px;
+  height: 36px;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.8) 8px,
+    rgba(247, 226, 211, 0.6) 8px,
+    rgba(247, 226, 211, 0.6) 16px
+  );
+  border-radius: 16px;
+  pointer-events: none;
+}
+.sun {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  color: var(--coral-accent);
+  font-size: 32px;
+  opacity: 0.85;
+}
+
+.garden-character-wrapper {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+}
+
+/* Boksil Garden Rig */
+.boksil {
+  position: relative;
+  width: 178px;
+  height: 250px;
+  z-index: 2;
+  transform: scale(.96);
+  transform-origin: bottom center;
+}
+.head, .torso, .arm, .leg { position: absolute; display: block; }
+.head {
+  left: 41px;
+  top: 0;
+  width: 96px;
+  height: 96px;
+  border: 5px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper);
+}
+.eyes::before, .eyes::after {
+  content: "";
+  position: absolute;
+  top: 35px;
+  width: 8px;
+  height: 19px;
+  border-radius: 99px;
+  background: var(--ink);
+}
+.eyes::before { left: 27px; }
+.eyes::after { right: 27px; }
+.mouth {
+  position: absolute;
+  left: 35px;
+  top: 58px;
+  width: 26px;
+  height: 15px;
+  border-bottom: 5px solid var(--ink);
+  border-radius: 0 0 30px 30px;
+}
+.cheeks::before, .cheeks::after {
+  content: "";
+  position: absolute;
+  top: 58px;
+  width: 16px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--soft);
+}
+.cheeks::before { left: 13px; }
+.cheeks::after { right: 13px; }
+.torso {
+  left: 51px;
+  top: 92px;
+  width: 76px;
+  height: 112px;
+  border: 5px solid var(--ink);
+  border-radius: 48%;
+  background: var(--paper);
+}
+.arm {
+  width: 56px;
+  height: 11px;
+  border-radius: 99px;
+  background: var(--ink);
+  transform-origin: 6px 6px;
+}
+.arm.left { left: 52px; top: 121px; transform: rotate(105deg); }
+.arm.right { left: 116px; top: 116px; transform: rotate(-45deg); }
+.arm.right::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  top: -9px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.leg {
+  top: 198px;
+  width: 13px;
+  height: 44px;
+  border-radius: 99px;
+  background: var(--ink);
+}
+.leg.left { left: 67px; }
+.leg.right { right: 67px; }
+.knee::after {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 8px;
+  width: 18px;
+  height: 18px;
+  border: 4px solid var(--pink);
+  border-radius: 50%;
+  background: var(--paper);
+}
+.mood-care .mouth {
+  top: 66px;
+  border-top: 5px solid var(--ink);
+  border-bottom: 0;
+  border-radius: 30px 30px 0 0;
+}
+.mood-cheer .mouth {
+  top: 52px;
+  width: 32px;
+  height: 25px;
+  border: 0;
+  border-radius: 0 0 22px 22px;
+  background: var(--ink);
+}
+
+/* Nini Chibi Coach Rig (docs/06_Nini_Pose_Prompt_Set-1.md) */
+.nini-character {
+  position: relative;
+  width: 186px;
+  height: 254px;
+  z-index: 2;
+  transform: scale(.96);
+  transform-origin: bottom center;
+}
+.nini-character .nini-head {
+  position: absolute;
+  left: 45px;
+  top: 6px;
+  width: 96px;
+  height: 94px;
+  border: 4.5px solid var(--ink);
+  border-radius: 50%;
+  background: #fff8f0;
+  z-index: 5;
+}
+/* Brown Ponytail + Light-Blue Scrunchie */
+.nini-character .nini-ponytail {
+  position: absolute;
+  left: 92px;
+  top: -16px;
+  width: 68px;
+  height: 98px;
+  background: #6e4627;
+  border: 4.5px solid var(--ink);
+  border-radius: 50% 50% 60% 30% / 60% 60% 40% 40%;
+  transform: rotate(32deg);
+  z-index: 4;
+}
+.nini-character .nini-scrunchie {
+  position: absolute;
+  left: 96px;
+  top: 0px;
+  width: 26px;
+  height: 26px;
+  border: 3.5px solid #234e6b;
+  border-radius: 50%;
+  background: #62c3f8;
+  z-index: 6;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+.nini-character .nini-bangs {
+  position: absolute;
+  left: 10px;
+  top: 2px;
+  right: 10px;
+  height: 30px;
+  border-bottom: 4px solid var(--ink);
+  border-radius: 0 0 24px 24px;
+  background: #6e4627;
+}
+.nini-character .nini-eyes::before,
+.nini-character .nini-eyes::after {
+  content: "";
+  position: absolute;
+  top: 38px;
+  width: 12px;
+  height: 18px;
+  border-radius: 50%;
+  background: #462816;
+}
+.nini-character .nini-eyes::before { left: 24px; }
+.nini-character .nini-eyes::after { right: 24px; }
+.nini-character .nini-eye-gleam::before,
+.nini-character .nini-eye-gleam::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  width: 4.5px;
+  height: 5.5px;
+  border-radius: 50%;
+  background: #ffffff;
+  z-index: 7;
+}
+.nini-character .nini-eye-gleam::before { left: 27px; }
+.nini-character .nini-eye-gleam::after { right: 29px; }
+.nini-character .nini-smile {
+  position: absolute;
+  left: 36px;
+  top: 62px;
+  width: 24px;
+  height: 14px;
+  border-bottom: 4.5px solid var(--ink);
+  border-radius: 0 0 24px 24px;
+}
+.nini-character .nini-cheeks::before,
+.nini-character .nini-cheeks::after {
+  content: "";
+  position: absolute;
+  top: 56px;
+  width: 18px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffadb8;
+  opacity: 0.85;
+}
+.nini-character .nini-cheeks::before { left: 10px; }
+.nini-character .nini-cheeks::after { right: 10px; }
+
+/* Nini White Cropped Zip-up Hoodie with Blue Leaf Logo */
+.nini-character .nini-torso {
+  position: absolute;
+  left: 54px;
+  top: 96px;
+  width: 78px;
+  height: 72px;
+  border: 4.5px solid var(--ink);
+  border-radius: 20px 20px 8px 8px;
+  background: #ffffff;
+  z-index: 4;
+}
+.nini-character .nini-leaf-logo {
+  position: absolute;
+  left: 20px;
+  top: 18px;
+  width: 16px;
+  height: 22px;
+  background: #1886eb;
+  border-radius: 80% 0 80% 0;
+  transform: rotate(-25deg);
+}
+.nini-character .nini-zipper {
+  position: absolute;
+  left: 38px;
+  top: 6px;
+  bottom: 6px;
+  width: 3px;
+  background: #c5d3df;
+}
+
+/* Nini Blue Shorts */
+.nini-character .nini-shorts {
+  position: absolute;
+  left: 52px;
+  top: 164px;
+  width: 82px;
+  height: 38px;
+  background: #1b68bd;
+  border: 4.5px solid var(--ink);
+  border-radius: 6px 6px 12px 12px;
+  z-index: 3;
+}
+
+/* Nini Limbs & Glowing Neon-Blue Circular Knee Pads */
+.nini-character .nini-arm {
+  position: absolute;
+  width: 52px;
+  height: 12px;
+  border-radius: 99px;
+  background: var(--ink);
+  transform-origin: 6px 6px;
+}
+.nini-character .nini-arm.left {
+  left: 48px;
+  top: 120px;
+  transform: rotate(115deg);
+}
+.nini-character .nini-arm.right {
+  left: 124px;
+  top: 116px;
+  transform: rotate(-38deg);
+}
+.nini-character .nini-leg {
+  position: absolute;
+  top: 198px;
+  width: 15px;
+  height: 48px;
+  border-radius: 99px;
+  background: var(--ink);
+}
+.nini-character .nini-leg.left { left: 69px; }
+.nini-character .nini-leg.right { right: 69px; }
+
+/* Signature Neon Blue Circular Knee Rings */
+.neon-knee-ring {
+  position: absolute;
+  left: -5.5px;
+  top: 10px;
+  width: 24px;
+  height: 24px;
+  border: 4px solid var(--neon-blue);
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px var(--neon-glow), inset 0 0 6px var(--neon-blue);
+  animation: neonPulse 2.2s infinite ease-in-out;
+}
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(0, 210, 255, 0.6), inset 0 0 5px #00d2ff;
+    border-color: #00d2ff;
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(0, 230, 255, 0.95), inset 0 0 9px #2ae3ff;
+    border-color: #2ae3ff;
+  }
+}
+
+.flowers {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 10px;
+  min-height: 72px;
+}
+.flower {
+  position: relative;
+  width: 35px;
+  height: 62px;
+}
+.flower::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  bottom: 0;
+  width: 4px;
+  height: 42px;
+  background: var(--green);
+}
+.flower::after {
+  content: "✿";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--pink);
+  font-size: 34px;
+}
+
+.bubble {
+  margin: 0;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: #ffffff;
+  color: #191c1d;
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: center;
+  word-break: keep-all;
+  border: 1.5px solid #edf2ee;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+}
+.watering {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.flower-check {
+  min-height: 70px;
+  display: grid;
+  place-items: center;
+  gap: 2px;
+  border: 1.5px solid #edf2ee;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #6d7b74;
+  font-weight: 800;
+}
+.flower-check small {
+  color: inherit;
+  font-size: 13px;
+  line-height: 1;
+}
+.flower-icon, .bud-icon {
+  display: block;
+  line-height: 1;
+}
+.bud-icon {
+  color: #a8b8b0;
+  font-size: 26px;
+  transform: translateY(2px) scale(.86);
+}
+.flower-icon {
+  color: var(--coral-accent);
+  font-size: 32px;
+  text-shadow: 0 2px 0 #fff;
+}
+.flower-check.done {
+  border-color: #b5e4a8;
+  background: #f6fbf4;
+  color: #1a563b;
+}
+.flower-check.bloom .flower-icon {
+  animation: bloom 680ms cubic-bezier(.18, .86, .26, 1.2) both;
+}
+
+/* Primary, Action & Pill Buttons (Inspired by Reference Dribbble UI) */
+.primary, .secondary, .danger, .pain {
+  min-height: 56px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s cubic-bezier(0.18, 0.86, 0.26, 1.2);
+}
+.primary {
+  width: 100%;
+  border: 0;
+  background: var(--charcoal-btn);
+  color: #ffffff;
+  font-size: 17px;
+  box-shadow: 0 10px 24px rgba(24, 28, 26, 0.18);
+}
+.primary:hover {
+  background: #2b302e;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(24, 28, 26, 0.24);
+}
+.primary:active {
+  transform: scale(0.98);
+}
+.secondary {
+  width: 100%;
+  border: none;
+  background: var(--sub-btn);
+  color: #2b302e;
+  font-size: 16px;
+}
+.secondary:hover {
+  background: #e9ecea;
+}
+.danger {
+  border: 1.5px solid #f0bec4;
+  background: #fff5f6;
+  color: var(--warn);
+  font-size: 16px;
+}
+.pain {
+  width: 88px;
+  border: 0;
+  background: #d84f5f;
+  color: white;
+  font-size: 16px;
+  box-shadow: 0 6px 16px rgba(216, 79, 95, 0.24);
+}
+
+/* Daily Inspiration Card */
+.daily-inspiration-card {
+  display: grid;
+  gap: 12px;
+  padding: 18px 16px;
+  border: 1.5px solid #edf2ee;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+.inspiration-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.inspiration-badge {
+  color: var(--coral-accent);
+  font-weight: 800;
+  font-size: 14px;
+}
+.inspiration-actions {
+  display: flex;
+  gap: 6px;
+}
+.inspiration-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border: 1px solid #e2ece6;
+  border-radius: 999px;
+  background: #f7faf8;
+  color: #355243;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background 0.15s ease;
+}
+.inspiration-action-btn:hover {
+  background: #edf5f0;
+}
+.inspiration-text {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.55;
+  color: #273830;
+  word-break: keep-all;
+}
+.inspiration-footer {
+  display: flex;
+  justify-content: space-between;
+  color: #6e7a74;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Level Picker from styles-1.css */
+.level-picker {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1.5px solid #edf2ee;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+.level-picker-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 10px;
+}
+.level-picker-heading > div > strong {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--font-title);
+  font-size: 22px;
+}
+.level-current {
+  display: grid;
+  gap: 2px;
+  min-width: 112px;
+  text-align: right;
+}
+.level-current b {
+  color: var(--green);
+  font-family: var(--font-title);
+  font-size: 20px;
+}
+.level-current small {
+  color: #526158;
+  font-size: 14px;
+  font-weight: 800;
+}
+.level-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px;
+}
+.level-option {
+  position: relative;
+  min-width: 0;
+  min-height: 100px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 7px;
+  padding: 12px 5px;
+  border: 2px solid #d5e8cb;
+  border-radius: 8px;
+  color: #33413a;
+  background: #f7faf6;
+  text-align: center;
+}
+.level-option b {
+  font-family: var(--font-title);
+  font-size: 18px;
+}
+.level-option span {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.25;
+  word-break: keep-all;
+}
+.level-option.selected {
+  border-color: var(--pink);
+  color: #7a3150;
+  background: #fff0f5;
+  box-shadow: inset 0 0 0 2px #ffffff;
+}
+.level-option.selected::after {
+  content: "✿";
+  position: absolute;
+  top: 5px;
+  right: 7px;
+  color: var(--pink);
+  font-size: 18px;
+}
+.level-option:focus-visible {
+  outline: 4px solid #f4b64a;
+  outline-offset: 2px;
+}
+
+.level-tip-card {
+  display: grid;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f6faf4;
+  border: 1px solid #dbead5;
+}
+.level-tip-badge {
+  color: var(--green);
+  font-weight: 900;
+  font-size: 15px;
+}
+.level-tip-target {
+  margin: 0;
+  font-size: 15px;
+  color: #384b3e;
+}
+.level-tip-caution {
+  margin: 0;
+  font-size: 14px;
+  color: #8c3b44;
+}
+.level-detail-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border: 1px solid #d5e8cb;
+  border-radius: 6px;
+  background: #fff;
+  color: #27563c;
+  font-weight: 800;
+  font-size: 15px;
+}
+
+/* Modes Selection Screen (2-Column Card Grid like "Pea" & "Watermelon" in reference) */
+.mode-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.mode {
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px 12px;
+  border: 1.5px solid #edf2ee;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  transition: all 0.22s cubic-bezier(0.18, 0.86, 0.26, 1.2);
+  cursor: pointer;
+}
+.mode:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+.mode[aria-pressed="true"] {
+  border-color: var(--coral-accent);
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(223, 110, 59, 0.18);
+  transform: translateY(-2px);
+}
+.mode .badge {
+  width: 60px;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  background: #fdf2e9;
+  color: #8c4217;
+  font-size: 28px;
+  margin-bottom: 10px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.mode[aria-pressed="true"] .badge {
+  background: #fbe6d4;
+  transform: scale(1.08);
+}
+.mode b {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  color: #191c1d;
+  margin-bottom: 4px;
+}
+.mode span:last-child {
+  font-size: 13px;
+  color: #69756f;
+  word-break: keep-all;
+  line-height: 1.35;
+}
+.modes-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+/* Safety Confirmation Screen */
+.safety-card {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+.pose-preview {
+  min-height: 130px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fff8ec 0 78%, #d7ebc8 79%);
+}
+.safety-card ul {
+  margin: 0;
+  padding-left: 24px;
+  font-size: 22px;
+  font-weight: 800;
+  word-break: keep-all;
+}
+.safety-card strong {
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff0ef;
+  color: var(--warn);
+  font-size: 21px;
+  word-break: keep-all;
+}
+
+/* Workout Stage & Sound/Alert Controls */
+.workbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.bgm-toggle-btn, .signal-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 48px;
+  padding: 6px 12px;
+  border: 2px solid #cfe3c5;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #274b37;
+  font-size: 15px;
+  font-weight: 900;
+}
+.bgm-toggle-btn[aria-pressed="true"] {
+  border-color: var(--green);
+  background: #ebf6e7;
+  color: var(--green);
+}
+.signal-toggle-btn[aria-pressed="true"] {
+  border-color: #f4b64a;
+  background: #fff8e8;
+  color: #79551c;
+}
+
+.leg-side-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #fdf2e9;
+  border: 1px solid #f6ded0;
+  color: #8c4217;
+  font-weight: 800;
+  font-size: 16px;
+}
+.leg-side-tag {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--coral-accent);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.stage {
+  min-height: 480px;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 12px;
+  padding: 16px;
+  overflow: visible;
+  position: relative;
+  border-radius: 32px;
+  background: #fdf2e9;
+  border: 1px solid #f6ded0;
+}
+.motion-figure {
+  --line: #111;
+  --skin: #fffdf8;
+  --joint: #ef5d88;
+  width: min(100%, 360px);
+  height: 300px;
+  position: relative;
+  border: 1px solid rgba(246, 222, 208, 0.8);
+  border-radius: 24px;
+  background: #fdf2e9;
+  overflow: visible;
+  margin-top: 4px;
+  transition: transform 380ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Left/Right alternation rule from docs/06_Nini_Pose_Prompt_Set-1.md */
+/* "왼쪽으로 바꿔요 단계는 앱에서 CSS transform: scaleX(-1) 좌우 반전으로 처리" */
+.motion-figure.character-flip-x {
+  transform: scaleX(-1);
+  transform-origin: center center;
+}
+
+/* Articulated SVG Rig */
+.boksil-svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.boksil-svg circle, .boksil-svg ellipse { vector-effect: non-scaling-stroke; }
+.boksil-rig, .svg-part, .svg-joint, .svg-hand, .svg-foot, .svg-chair, .svg-floor {
+  transition: transform 580ms cubic-bezier(.2, .8, .2, 1), opacity 320ms ease;
+}
+.b-head-base, .b-torso-body { fill: var(--skin); stroke: var(--line); stroke-width: 5; }
+.svg-eye { fill: var(--line); }
+.svg-cheek { fill: var(--soft); stroke: none; }
+.svg-smile { fill: none; stroke: var(--line); stroke-width: 4.5; stroke-linecap: round; }
+.b-neck line, .limb line { stroke: var(--line); stroke-width: 12; stroke-linecap: round; }
+.svg-joint { fill: var(--skin); stroke: var(--line); stroke-width: 4.5; }
+.svg-joint.highlight {
+  stroke: var(--joint);
+  stroke-width: 6;
+  filter: drop-shadow(0 0 0 #fff);
+}
+.svg-hand, .svg-foot { fill: var(--line); stroke: var(--line); stroke-width: 2; }
+.svg-floor { stroke: #bcd8b0; stroke-width: 7; stroke-linecap: round; }
+.svg-chair-back, .svg-chair-seat { stroke: #8a6d50; stroke-width: 8; stroke-linecap: round; }
+.svg-part, .svg-joint, .svg-hand, .svg-foot { transform-box: view-box; transform-origin: 0 0; }
+
+/* Nini Mode SVG Styling: Ponytail, Cropped Hoodie & Neon Blue Knee Glow */
+.is-nini-mode .b-head-base { fill: #fff8f0; }
+.is-nini-mode .b-ear { display: none; }
+.is-nini-mode .b-ponytail-svg { display: block !important; fill: #6e4627; stroke: var(--line); stroke-width: 4.5; }
+.is-nini-mode .b-scrunchie-svg { display: block !important; fill: #62c3f8; stroke: #234e6b; stroke-width: 3.5; }
+.is-nini-mode .b-leaf-logo-svg { display: block !important; fill: #1886eb; }
+.is-nini-mode .b-shorts-svg { display: block !important; fill: #1b68bd; }
+.is-nini-mode .svg-joint.highlight {
+  stroke: var(--neon-blue);
+  stroke-width: 6;
+  box-shadow: 0 0 12px var(--neon-glow);
+  filter: drop-shadow(0 0 6px var(--neon-blue)) drop-shadow(0 0 10px #2ae3ff);
+  animation: neonJointGlow 1.4s infinite alternate;
+}
+@keyframes neonJointGlow {
+  from { filter: drop-shadow(0 0 4px #00d2ff); }
+  to { filter: drop-shadow(0 0 10px #2ae3ff) drop-shadow(0 0 14px #00d2ff); }
+}
+
+.b-head { transform: translate(180px, 58px); }
+.b-neck { transform: translate(180px, 88px); }
+.b-torso { transform: translate(180px, 144px); }
+
+/* Poses: Seated */
+.pose-seated .svg-floor { transform: translateY(0); }
+.pose-seated .svg-chair { opacity: 1; }
+.pose-seated .b-left-upper-arm { transform: translate(151px, 118px) rotate(132deg); }
+.pose-seated .b-left-elbow { transform: translate(121px, 154px); }
+.pose-seated .b-left-forearm { transform: translate(121px, 154px) rotate(88deg); }
+.pose-seated .b-left-hand { transform: translate(119px, 199px); }
+.pose-seated .b-right-upper-arm { transform: translate(210px, 118px) rotate(48deg); }
+.pose-seated .b-right-elbow { transform: translate(241px, 153px); }
+.pose-seated .b-right-forearm { transform: translate(241px, 153px) rotate(88deg); }
+.pose-seated .b-right-hand { transform: translate(244px, 199px); }
+.pose-seated .b-left-thigh { transform: translate(156px, 185px) rotate(4deg); }
+.pose-seated .b-left-knee { transform: translate(214px, 189px); }
+.pose-seated .b-left-shin { transform: translate(216px, 192px) rotate(88deg); }
+.pose-seated .b-left-foot { transform: translate(216px, 252px) rotate(0deg); }
+.pose-seated .b-right-thigh { transform: translate(148px, 201px) rotate(7deg); }
+.pose-seated .b-right-knee { transform: translate(206px, 208px); }
+.pose-seated .b-right-shin { transform: translate(210px, 210px) rotate(88deg); }
+.pose-seated .b-right-foot { transform: translate(210px, 268px) rotate(0deg); }
+
+/* Fine-grained movement phases: toe, lift, hold, lower */
+.pose-seated.phase-toe .b-right-foot { transform: translate(211px, 266px) rotate(-20deg); }
+.pose-seated.phase-lift .b-right-knee, .pose-seated.phase-hold .b-right-knee { transform: translate(207px, 205px); }
+.pose-seated.phase-lift .b-right-shin, .pose-seated.phase-hold .b-right-shin { transform: translate(211px, 207px) rotate(7deg); }
+.pose-seated.phase-lift .b-right-foot, .pose-seated.phase-hold .b-right-foot { transform: translate(270px, 214px) rotate(5deg); }
+.pose-seated.phase-hold .b-head { transform: translate(180px, 56px); }
+
+/* Poses: Lying */
+.pose-lying .svg-chair { opacity: 0; }
+.pose-lying .svg-floor { transform: translateY(-38px); }
+.pose-lying .b-head { transform: translate(56px, 184px) rotate(0deg); }
+.pose-lying .b-neck { transform: translate(88px, 187px) rotate(88deg); }
+.pose-lying .b-torso { transform: translate(150px, 192px) rotate(90deg) scale(.78, 1.08); }
+.pose-lying .b-left-upper-arm { transform: translate(120px, 178px) rotate(4deg); }
+.pose-lying .b-left-elbow { transform: translate(166px, 181px); }
+.pose-lying .b-left-forearm { transform: translate(170px, 181px) rotate(5deg); }
+.pose-lying .b-left-hand { transform: translate(214px, 185px); }
+.pose-lying .b-right-upper-arm { transform: translate(120px, 207px) rotate(6deg); }
+.pose-lying .b-right-elbow { transform: translate(166px, 212px); }
+.pose-lying .b-right-forearm { transform: translate(170px, 212px) rotate(5deg); }
+.pose-lying .b-right-hand { transform: translate(214px, 216px); }
+.pose-lying .b-left-thigh { transform: translate(200px, 180px) rotate(4deg); }
+.pose-lying .b-left-knee { transform: translate(258px, 184px); }
+.pose-lying .b-left-shin { transform: translate(262px, 184px) rotate(4deg); }
+.pose-lying .b-left-foot { transform: translate(322px, 188px) rotate(4deg); }
+.pose-lying .b-right-thigh { transform: translate(198px, 207px) rotate(-58deg); }
+.pose-lying .b-right-knee { transform: translate(228px, 160px); }
+.pose-lying .b-right-shin { transform: translate(232px, 162px) rotate(62deg); }
+.pose-lying .b-right-foot { transform: translate(258px, 216px) rotate(62deg); }
+.pose-lying.phase-toe .b-left-foot { transform: translate(322px, 185px) rotate(-16deg); }
+.pose-lying.phase-lift .b-left-thigh, .pose-lying.phase-hold .b-left-thigh { transform: translate(200px, 180px) rotate(-19deg); }
+.pose-lying.phase-lift .b-left-knee, .pose-lying.phase-hold .b-left-knee { transform: translate(255px, 162px); }
+.pose-lying.phase-lift .b-left-shin, .pose-lying.phase-hold .b-left-shin { transform: translate(259px, 162px) rotate(-19deg); }
+.pose-lying.phase-lift .b-left-foot, .pose-lying.phase-hold .b-left-foot { transform: translate(313px, 144px) rotate(-18deg); }
+
+/* Poses: Home */
+.pose-home .svg-chair { opacity: 1; transform: translate(4px, -2px); }
+.pose-home .svg-floor { transform: translateY(14px); }
+.pose-home .b-head { transform: translate(180px, 55px); }
+.pose-home .b-neck { transform: translate(180px, 86px); }
+.pose-home .b-torso { transform: translate(180px, 142px); }
+.pose-home .b-left-upper-arm { transform: translate(150px, 116px) rotate(170deg); }
+.pose-home .b-left-elbow { transform: translate(104px, 124px); }
+.pose-home .b-left-forearm { transform: translate(101px, 126px) rotate(96deg); }
+.pose-home .b-left-hand { transform: translate(96px, 170px); }
+.pose-home .b-right-upper-arm { transform: translate(210px, 116px) rotate(50deg); }
+.pose-home .b-right-elbow { transform: translate(240px, 151px); }
+.pose-home .b-right-forearm { transform: translate(242px, 154px) rotate(82deg); }
+.pose-home .b-right-hand { transform: translate(250px, 198px); }
+.pose-home .b-left-thigh { transform: translate(162px, 184px) rotate(78deg); }
+.pose-home .b-left-knee { transform: translate(176px, 238px); }
+.pose-home .b-left-shin { transform: translate(176px, 240px) rotate(91deg); }
+.pose-home .b-left-foot { transform: translate(171px, 286px); }
+.pose-home .b-right-thigh { transform: translate(198px, 184px) rotate(98deg); }
+.pose-home .b-right-knee { transform: translate(190px, 238px); }
+.pose-home .b-right-shin { transform: translate(190px, 240px) rotate(88deg); }
+.pose-home .b-right-foot { transform: translate(188px, 286px); }
+.pose-home.phase-lift .b-right-knee, .pose-home.phase-hold .b-right-knee { transform: translate(190px, 228px); }
+.pose-home.phase-lift .b-right-shin, .pose-home.phase-hold .b-right-shin { transform: translate(190px, 230px) rotate(82deg); }
+.pose-home.phase-lift .b-right-foot, .pose-home.phase-hold .b-right-foot { transform: translate(194px, 268px); }
+
+/* Poses: Belly */
+.pose-belly .svg-chair { opacity: 0; }
+.pose-belly .svg-floor { transform: translateY(6px); }
+.pose-belly .b-head { transform: translate(180px, 58px); }
+.pose-belly .b-neck { transform: translate(180px, 88px); }
+.pose-belly .b-torso { transform: translate(180px, 145px); }
+.pose-belly .b-left-upper-arm { transform: translate(150px, 124px) rotate(102deg); }
+.pose-belly .b-left-elbow { transform: translate(140px, 168px); }
+.pose-belly .b-left-forearm { transform: translate(140px, 171px) rotate(8deg); }
+.pose-belly .b-left-hand { transform: translate(183px, 174px); }
+.pose-belly .b-right-upper-arm { transform: translate(210px, 124px) rotate(78deg); }
+.pose-belly .b-right-elbow { transform: translate(220px, 168px); }
+.pose-belly .b-right-forearm { transform: translate(220px, 171px) rotate(172deg); }
+.pose-belly .b-right-hand { transform: translate(177px, 174px); }
+.pose-belly .b-left-thigh { transform: translate(160px, 186px) rotate(112deg); }
+.pose-belly .b-left-knee { transform: translate(138px, 238px); }
+.pose-belly .b-left-shin { transform: translate(135px, 240px) rotate(7deg); }
+.pose-belly .b-left-foot { transform: translate(82px, 246px); }
+.pose-belly .b-right-thigh { transform: translate(200px, 186px) rotate(68deg); }
+.pose-belly .b-right-knee { transform: translate(222px, 238px); }
+.pose-belly .b-right-shin { transform: translate(222px, 240px) rotate(173deg); }
+.pose-belly .b-right-foot { transform: translate(278px, 246px); }
+.pose-belly.phase-lift .b-torso, .pose-belly.phase-hold .b-torso { transform: translate(180px, 150px) scale(1.05, 1.02); }
+.pose-belly.phase-lift .b-head, .pose-belly.phase-hold .b-head { transform: translate(180px, 62px); }
+
+.count {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  word-break: keep-all;
+  min-height: 88px;
+  color: var(--green);
+  font-family: var(--font-title);
+  font-size: clamp(34px, 10vw, 68px);
+  line-height: 1;
+  font-weight: 900;
+}
+.cue {
+  min-height: 66px;
+  margin: 0;
+  text-align: center;
+  color: #334a3c;
+  font-size: 24px;
+  font-weight: 900;
+  word-break: keep-all;
+}
+.meters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.meters span {
+  padding: 12px;
+  border-radius: 8px;
+  background: #e8f6df;
+  text-align: center;
+  color: #31513e;
+  font-size: 22px;
+  font-weight: 900;
+}
+.work-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Dedicated Rest Overlay between sets */
+.rest-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(248, 255, 244, 0.95);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  z-index: 20;
+  border-radius: 8px;
+}
+.rest-card {
+  width: 100%;
+  background: #ffffff;
+  border: 2px solid #d5e8cb;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 12px 28px rgba(47, 124, 88, 0.14);
+  text-align: center;
+  display: grid;
+  gap: 12px;
+}
+.rest-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rest-badge {
+  color: var(--green);
+  font-weight: 900;
+  font-size: 16px;
+}
+.rest-next-label {
+  color: #705224;
+  background: #fff5df;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 14px;
+}
+.rest-countdown {
+  font-size: 64px;
+  color: var(--green);
+  font-family: var(--font-title);
+  line-height: 1;
+}
+.rest-guide-text {
+  margin: 0;
+  font-size: 18px;
+  color: #405445;
+  line-height: 1.4;
+}
+.rest-controls {
+  display: grid;
+  gap: 8px;
+}
+.rest-btn-start {
+  min-height: 52px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--charcoal-btn);
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(24, 28, 26, 0.16);
+}
+.rest-btn-extend {
+  min-height: 48px;
+  border-radius: 999px;
+  border: none;
+  background: #f4f6f5;
+  color: #2b302e;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Completion Screen (Watering Can & Floral Celebration) */
+.done-card {
+  position: relative;
+  min-height: 290px;
+  display: grid;
+  place-items: center;
+  align-content: end;
+  background: #fdf2e9;
+  border: 1px solid #f6ded0;
+  border-radius: 32px;
+  overflow: hidden;
+  padding: 18px 16px 22px;
+}
+.done-card .can {
+  position: absolute;
+  right: 26px;
+  top: 24px;
+  width: 58px;
+  height: 58px;
+  border: 4px solid var(--green);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--green);
+  font-size: 34px;
+  display: grid;
+  place-items: center;
+  animation: pour 1.1s ease-in-out infinite alternate;
+  z-index: 1;
+}
+.done-boksil, .done-nini {
+  margin: 12px 0 48px;
+  transform: scale(.92);
+  animation: donePop 760ms cubic-bezier(.18, .88, .22, 1.18) both, doneBounce 1.6s ease-in-out 820ms infinite;
+}
+.celebration {
+  position: absolute;
+  inset: 16px 28px auto;
+  display: flex;
+  justify-content: space-between;
+  color: var(--pink);
+  font-size: 28px;
+  pointer-events: none;
+}
+.celebration span {
+  opacity: 0;
+  animation: sparkleRise 1.7s ease-in-out infinite;
+}
+.celebration span:nth-child(2) { color: var(--gold); animation-delay: .24s; }
+.celebration span:nth-child(3) { animation-delay: .48s; }
+
+/* Senior Exercise Guide Modal & Accordion */
+.guide-screen {
+  padding-bottom: 32px;
+}
+.guide-intro, .not-default {
+  margin: 12px 0 16px;
+  padding: 16px;
+  border-left: 5px solid var(--green);
+  background: #f4faf6;
+}
+.guide-intro strong, .not-default strong {
+  display: block;
+  margin-bottom: 6px;
+  font-family: var(--font-title);
+  font-size: 20px;
+}
+.guide-intro p, .not-default p {
+  margin: 5px 0;
+  line-height: 1.55;
+}
+.exercise-guide-list {
+  display: grid;
+  gap: 10px;
+}
+.exercise-guide {
+  overflow: hidden;
+  border: 1px solid #d6ddd8;
+  border-radius: 8px;
+  background: #ffffff;
+}
+.exercise-guide summary {
+  display: grid;
+  grid-template-columns: 66px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  min-height: 76px;
+  padding: 12px 38px 12px 12px;
+  cursor: pointer;
+}
+.exercise-guide summary b {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-title);
+  font-size: 18px;
+}
+.exercise-guide summary small {
+  display: block;
+  color: #526158;
+  font-size: 14px;
+  line-height: 1.35;
+}
+.guide-tag {
+  display: grid;
+  place-items: center;
+  min-height: 42px;
+  border-radius: 6px;
+  font-weight: 800;
+}
+.seated-tag { color: #174f84; background: #e6f2ff; }
+.lying-tag { color: #2f6b3c; background: #eaf6e8; }
+.home-tag { color: #78520c; background: #fff2cf; }
+.exercise-guide ol {
+  margin: 0;
+  padding: 4px 22px 4px 42px;
+}
+.exercise-guide li {
+  margin: 0 0 10px;
+  line-height: 1.55;
+}
+.guide-caution {
+  margin: 6px 14px 12px;
+  padding: 11px 12px;
+  border-left: 4px solid #e65d68;
+  background: #fff2f3;
+  line-height: 1.5;
+}
+.guide-speak {
+  min-height: 48px;
+  margin: 0 14px 16px;
+  padding: 10px 14px;
+  border: 1px solid #2f7c58;
+  border-radius: 6px;
+  color: #205c43;
+  background: #edf8f1;
+  font-family: var(--font-title);
+  font-size: 16px;
+  font-weight: 800;
+}
+
+@keyframes pour { from { transform: translateX(-18px) rotate(-18deg); } to { transform: translateX(18px) rotate(10deg); } }
+@keyframes bloom { 0% { transform: scale(.35) rotate(-12deg); opacity: .25; } 65% { transform: scale(1.22) rotate(7deg); opacity: 1; } 100% { transform: scale(1) rotate(0deg); opacity: 1; } }
+@keyframes donePop { 0% { opacity: 0; transform: translateY(24px) scale(.68); } 70% { opacity: 1; transform: translateY(-4px) scale(.98); } 100% { opacity: 1; transform: translateY(0) scale(.92); } }
+@keyframes doneBounce { 0%, 100% { transform: translateY(0) scale(.92); } 50% { transform: translateY(-8px) scale(.94); } }
+@keyframes sparkleRise { 0% { opacity: 0; transform: translateY(22px) scale(.5); } 45% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; transform: translateY(-22px) scale(.7); } }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
+@media (max-width: 380px) {
+  .app { padding: 10px; }
+  .screen { min-height: calc(100vh - 20px); }
+  .garden { min-height: 350px; }
+  .boksil, .nini-character { transform: scale(.88); }
+  .stage { min-height: 500px; }
+  .motion-figure, .nini-workout-figure { transform: scale(.92); transform-origin: top center; margin-bottom: -16px; }
+  .mode b, .cue { font-size: 23px; }
+  .count { font-size: 58px; }
+}
+
+/* ==========================================================================
+   NINI 3D CHIBI CHARACTER & COMPANION SYSTEM (06_Nini_Pose_Prompt_Set.md)
+   ========================================================================== */
+
+/* Companion Switcher */
+.companion-selector {
+  display: inline-flex;
+  gap: 6px;
+  background: #eef7f0;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1.5px solid #c9e4d2;
+}
+.companion-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: #3b5245;
+  font-family: var(--font-title);
+  font-size: 15px;
+  font-weight: 800;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+}
+.companion-btn .companion-avatar {
+  font-size: 18px;
+  line-height: 1;
+}
+.companion-btn.active {
+  background: #ffffff;
+  color: #174f84;
+  box-shadow: 0 2px 8px rgba(23, 79, 132, 0.18);
+}
+.companion-btn.active.is-nini {
+  background: #e6f4ff;
+  color: #0b5796;
+  border: 1.5px solid #92cbf8;
+}
+.companion-btn.active:not(.is-nini) {
+  background: #ffffff;
+  color: #205c43;
+  border: 1.5px solid #a4dbc0;
+}
+
+/* Home & Done Character Stage */
+.garden-character-wrapper,
+.done-character-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  margin: 0 auto;
+}
+
+/* Nini Display Character in Home and Done screens */
+.nini-character {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 220px;
+  animation: niniGentleFloat 4s ease-in-out infinite alternate;
+}
+.nini-character .companion-display-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 18px rgba(32, 60, 48, 0.16));
+  transition: transform 0.3s ease;
+}
+
+/* Neon Knee Halo Effect (06_Nini_Pose_Prompt_Set.md) */
+.neon-knee-halo {
+  position: absolute;
+  bottom: 24px;
+  width: 70px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--neon-glow) 0%, rgba(0, 210, 255, 0) 72%);
+  pointer-events: none;
+  animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+/* Workout Stage Nini Pose Image Viewer */
+.nini-workout-figure {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 340px);
+  min-height: 320px;
+  margin: 0 auto;
+}
+.nini-img-wrapper {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nini-workout-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 20px rgba(18, 48, 70, 0.16));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+/* Left Leg Side Flip Rule (docs/06_Nini_Pose_Prompt_Set-1.md) */
+.nini-workout-figure.character-flip-x .nini-workout-img,
+.nini-workout-figure.side-left .nini-workout-img {
+  transform: scaleX(-1);
+}
+
+/* Hold Phase Neon Glow Highlight (Phase 4 / Hold) */
+.nini-workout-figure.phase-hold .nini-workout-img {
+  filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.85)) drop-shadow(0 8px 18px rgba(18, 48, 70, 0.2));
+  animation: niniHoldVibrate 0.8s ease-in-out infinite alternate;
+}
+
+.neon-knee-indicator {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.nini-workout-figure.phase-hold .neon-knee-indicator {
+  opacity: 1;
+}
+.neon-pulse-ring {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--neon-blue);
+  box-shadow: 0 0 16px var(--neon-blue), 0 0 30px var(--neon-glow);
+  animation: neonRingExpand 1.5s cubic-bezier(0.1, 0.8, 0.2, 1) infinite;
+}
+
+/* Ready Screen Pose Preview */
+.ready-pose-img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(24, 60, 40, 0.14));
+}
+
+/* Editorial Title Compatibility */
+.editorial-title {
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: clamp(30px, 7.5vw, 42px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+}
+
+@keyframes niniGentleFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+@keyframes neonPulse {
+  0% { opacity: 0.45; transform: scale(0.9); }
+  100% { opacity: 0.95; transform: scale(1.15); }
+}
+@keyframes niniHoldVibrate {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-3px); }
+}
+@keyframes neonRingExpand {
+  0% { transform: scale(0.7); opacity: 0.9; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+

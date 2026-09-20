@@ -1,0 +1,6 @@
+.bkit/
+.vercel/
+node_modules/
+
+.vercel
+.env*

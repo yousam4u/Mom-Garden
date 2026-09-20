@@ -1,0 +1,6 @@
+{
+  "name": "엄마의 정원",
+  "description": "복실이와 니니 코치가 함께하는 70대 어르신 맞춤 무릎 안심 운동 정원",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="복실이 앱 아이콘">
+  <rect width="512" height="512" rx="88" fill="#F8FFF4"/>
+  <path d="M74 395c38-59 94-88 182-88s144 29 182 88" fill="#DDEFD2"/>
+  <circle cx="256" cy="178" r="89" fill="#FFFDF8" stroke="#111" stroke-width="18"/>
+  <ellipse cx="222" cy="176" rx="10" ry="21" fill="#111"/>
+  <ellipse cx="290" cy="176" rx="10" ry="21" fill="#111"/>
+  <circle cx="195" cy="211" r="15" fill="#FFD0C7"/>
+  <circle cx="317" cy="211" r="15" fill="#FFD0C7"/>
+  <path d="M222 220c20 22 48 22 68 0" fill="none" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+  <path d="M204 282c-27 21-42 54-42 92 0 52 39 82 94 82s94-30 94-82c0-38-15-71-42-92" fill="#FFFDF8" stroke="#111" stroke-width="18"/>
+  <path d="M194 326c-44 7-73 31-82 70" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+  <path d="M324 326c45-8 73-35 82-76" fill="none" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="362" cy="242" r="18" fill="#111"/>
+  <path d="M226 454v-48M286 454v-48" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="287" cy="386" r="13" fill="#EF5D88"/>
+  <text x="350" y="123" font-family="Arial, sans-serif" font-size="56" font-weight="700" fill="#EF5D88">✿</text>
+</svg>

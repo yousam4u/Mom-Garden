@@ -1,0 +1,18 @@
+{
+  "name": "엄마의 정원",
+  "short_name": "엄마정원",
+  "description": "70대 어른이 집에서 무릎 운동을 쉽고 즐겁게 반복하도록 돕는 앱",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F8FFF4",
+  "theme_color": "#2F7C58",
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
